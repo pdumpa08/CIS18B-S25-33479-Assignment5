@@ -12,14 +12,14 @@ interface Observer<T> {
 }
 
 class NotificationManager<T> {
-    private final List<Observer<? super T>> observers = new ArrayList<>();
+    private final List<Observer<T>> observers = new ArrayList<>();
 
-    public void addObserver(Observer<? super T> observer) {
+    public void addObserver(Observer<T> observer) {
         observers.add(observer);
     }
     
     public void notifyObservers(Notification<T> notification) {
-        for (Observer<? super T> observer : observers) {
+        for (Observer<T> observer : observers) {
             observer.update(notification);
         }
     }
